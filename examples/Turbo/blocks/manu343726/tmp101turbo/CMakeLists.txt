@@ -42,13 +42,13 @@ ADD_BIICODE_TARGETS()
 #     TARGET_LINK_LIBRARIES(user_block pthread)
 #     NOTE:  This can be also done adding pthread to ${BII_LIB_DEPS}
 #            BEFORE calling ADD_BIICODE_TARGETS()
-#
+# 
 # Example: how to activate C++11. Uncomment one of this
 #     target_compile_options(${BII_LIB_TARGET} PUBLIC "-std=c++11") # Win, or linux if not gcc problems
 #     target_compile_options(${BII_LIB_TARGET} PUBLIC "-std=c++11"  "-stdlib=libc++") # MacOS
 #     target_compile_options(${BII_LIB_TARGET} PUBLIC "-std=c++11" "-Wl,--no-as-needed") # Ubuntu if gcc problems
 # with LLVM, you might need to link the target with "-lc++abi"
-#
+# 
 # If you want your code to be portable and activate properly C++11, you have to handle it:
 # if(WIN32)
 #     target_compile_options(${BII_LIB_TARGET} ... windows
@@ -59,7 +59,7 @@ ADD_BIICODE_TARGETS()
 # endif()
 
 
-
+target_compile_options(${BII_hello_world_TARGET} PUBLIC "-std=c++11")
 
 
 

@@ -35,7 +35,7 @@
 //Do you remember our friend the typelist? Lets build a compile-time string
 //as a typelist of characters:
 
-using string = tml::char_list<'h','e','l','l','o',' ','w','o','r','l','d','!'>;
+using string = tml::character_list<'h','e','l','l','o',' ','w','o','r','l','d','!'>;
 
 //But Manu, that are values, not types. You are correct. Turbo uses type parameters whenever
 //possible, passing values as boxed types ike std::integral_constant. In this case, Turbo defines an 
@@ -50,8 +50,12 @@ using string = tml::char_list<'h','e','l','l','o',' ','w','o','r','l','d','!'>;
 //to tml::to_runtime(). Note that to_runtime is designed with no runtime overhead in mind, Think of it as a 
 //trigger for the compiler to place the computed values on the executable.
 
+#include <iostream>
+
 int main()
 {
     for(char c : tml::to_runtime<string>())
         std::cout << c;
+        
+    std::cout << std::endl;
 }
